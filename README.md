@@ -6,4 +6,6 @@ Original task from https://code.it4i.cz/training/cuda_2022/-/tree/main/hello_wor
 You can build and run it on Karolina cluster using  ``./run.sh `` script.
 
 It says "Hello GPU world from thread n/N, block n/N, my global index is n/N" using CUDA
-</p>
+
+## 02 - OpenVDB + NanoVDB library (re)build
+Building the lib on cluster/node

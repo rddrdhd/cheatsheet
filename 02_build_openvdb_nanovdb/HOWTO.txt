@@ -1,0 +1,25 @@
+#just follow these commands to (re)build OpenVDB on Karolina cluster:
+
+ssh karolina
+
+#salloc qgpu_exp (one GPU is enough), otherwise dont make -j128, but like 64 max
+
+cd-open                
+
+cd libs/openvdb
+
+rm -rf build
+
+mkdir build
+
+cd build
+
+load_modules       
+
+export LD_LIBRARY_PATH=/apps/all/tbb/2020.3-GCCcore-10.2.0/lib64:$LD_LIBRARY_PATH
+
+cmake .. -DUSE_NANOVDB=ON -DNANOVDB_BUILD_UNITTESTS=ON -DNANOVDB_BUILD_EXAMPLES=ON -DNANOVDB_BUILD_BENCHMARK=ON -DNANOVDB_USE_INTRINSICS=ON -DNANOVDB_USE_CUDA=ON -DNANOVDB_CUDA_KEEP_PTX=ON -DCMAKE_INSTALL_PREFIX:PATH=/mnt/proj3/open-28-64/zur0037/libs/openvdb/install 
+
+make -j128
+
+make install
